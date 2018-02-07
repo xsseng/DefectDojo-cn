@@ -1,7 +1,7 @@
 # DefectDojo-cn
 ----------
 DefectDojo-cn是对DefectDojo资源文件进行汉化的版本，你需要先安装原版的DefectDojo。
-
+![enter description here][1]
 # 文档
 
 
@@ -39,3 +39,5 @@ sys.setdefaultencoding('utf8')
 ```
 6.进入mysql的dojo数据库中执行sql文件，然后替换/template/目录下的所有文件
 
+
+  [1]: ./doc/img/screenshot.png
