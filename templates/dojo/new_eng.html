@@ -10,9 +10,9 @@
 {% endblock %}
 {% block content %}
     {% if edit %}
-        <h3> Edit Engagement </h3>
+        <h3> 编辑任务 </h3>
     {% else %}
-        <h3> New Engagement </h3>
+        <h3> 新建任务 </h3>
     {% endif %}
     <form class="form-horizontal" method="post">{% csrf_token %}
         {% include "dojo/form_fields.html" with form=form %}
