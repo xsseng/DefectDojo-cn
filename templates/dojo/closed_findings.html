@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading tight">
                     <h3 class="has-filters">
-                        Closed Findings
+                        关闭的报告
                         <div class="dropdown pull-right"></div>
                     </h3>
                 </div>
@@ -23,12 +23,12 @@
                            class="tablesorter-bootstrap table table-bordered table-condensed table-striped table-hover">
                         <thead>
                         <tr>
-                            <th class="nowrap">{% dojo_sort request 'Name' 'title' %}</th>
-                            <th class="nowrap">{% dojo_sort request 'Date' 'date' %}</th>
-                            <th class="nowrap">{% dojo_sort request 'Mitigated On' 'mitigated' %}</th>
-                            <th class="nowrap">Age</th>
-                            <th class="nowrap">{% dojo_sort request 'Severity' 'numerical_severity' 'asc' %}</th>
-                            <th class="nowrap">{% dojo_sort request 'Product' 'test__engagement__product__name'%}</th>
+                            <th class="nowrap">{% dojo_sort request '名称' 'title' %}</th>
+                            <th class="nowrap">{% dojo_sort request '日期' 'date' %}</th>
+                            <th class="nowrap">{% dojo_sort request '关闭日期' 'mitigated' %}</th>
+                            <th class="nowrap">年龄</th>
+                            <th class="nowrap">{% dojo_sort request '等级' 'numerical_severity' 'asc' %}</th>
+                            <th class="nowrap">{% dojo_sort request '产品' 'test__engagement__product__name'%}</th>
                         </tr>
                         </thead>
                         <tbody>
