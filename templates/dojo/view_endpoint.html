@@ -32,28 +32,28 @@
                             <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
                                 <li role="presentation">
                                     <a href="{% url 'edit_endpoint' endpoint.id %}">
-                                        <i class="fa fa-pencil-square-o"></i> Edit Endpoint
+                                        <i class="fa fa-pencil-square-o"></i> 编辑端点
                                     </a>
                                 </li>
                                 <li role="presentation">
                                     <a href="{% url 'add_endpoint_meta_data' endpoint.id %}">
-                                        <i class="fa fa-list-alt"></i> Add Metadata
+                                        <i class="fa fa-list-alt"></i> 添加元数据
                                     </a>
                                 </li>
                                 <li role="presentation">
                                     <a href="{% url 'endpoint_report' endpoint.id %}">
-                                        <i class="fa fa-file-text-o"></i> Report
+                                        <i class="fa fa-file-text-o"></i> 报告
                                     </a>
                                 </li>
                                 <li role="presentation">
                                     <a href="{% url 'action_history' endpoint|content_type endpoint.id %}">
-                                        <i class="fa fa-history"></i> View History
+                                        <i class="fa fa-history"></i> 查看历史
                                     </a>
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li role="presentation" class="text-danger">
                                     <a class="text-danger" href="{% url 'delete_endpoint' endpoint.id %}">
-                                        <i class="fa fa-trash-o"></i> Delete Endpoint
+                                        <i class="fa fa-trash-o"></i> 删除端点
                                     </a>
                                 </li>
                             </ul>
@@ -133,7 +133,7 @@
 
     <div class="panel panel-default endpoints table-responsive">
         <div class="panel-heading">
-            <h4>Vulnerable Services</h4>
+            <h4>脆弱的服务</h4>
         </div>
         {% if  endpoints %}
             {% colgroup endpoints into 3 cols as grouped_items %}
@@ -149,7 +149,7 @@
             </table>
         {% else %}
             <div id="vuln_endpoints" class="panel-body endpoint-panel table-responsive">
-                No endpoints.
+                暂无端点.
             </div>
         {% endif %}
 
@@ -203,16 +203,16 @@
 
     <div class="panel panel-default table-responsive">
         <div class="panel-heading">
-            <h4>Active Findings</h4>
+            <h4>活跃的报告</h4>
         </div>
         {% if findings %}
             <table id="findings" class="tablesorter-bootstrap table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Severity</th>
-                    <th>Age</th>
+                    <th>标题</th>
+                    <th>日期</th>
+                    <th>等级</th>
+                    <th>年龄</th>
                 </tr>
                 </thead>
                 <tbody>

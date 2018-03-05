@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <h3> Edit Test Details </h3>
+    <h3> 修改测试详情 </h3>
     <form class="form-horizontal" method="post">{% csrf_token %}
         {% include "dojo/form_fields.html" with form=form %}
         <div class="form-group">
