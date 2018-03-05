@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading tight">
                     <h3 class="has-filters">
-                        Product Type List
+                        产品类型列表
                         <div class="dropdown pull-right">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
                                     data-toggle="dropdown" aria-expanded="true">
@@ -18,7 +18,7 @@
                                 {% if request.user.is_staff %}
                                     <li role="presentation">
                                         <a href="{% url 'add_product_type' %}">
-                                            <i class="fa fa-plus"></i> Add Product Type
+                                            <i class="fa fa-plus"></i> 添加产品类型
                                         </a>
                                     </li>
                                 {% endif %}
@@ -42,11 +42,11 @@
                            class="tablesorter-bootstrap table table-bordered table-condensed table-striped">
                         <thead>
                         <tr>
-                            <th>{% dojo_sort request 'Product Type' 'name' 'asc' %}</th>
-                            <th> # of Products</th>
-                            <th> # of active findings</th>
+                            <th>{% dojo_sort request '产品类型' 'name' 'asc' %}</th>
+                            <th> 产品数量</th>
+                            <th> 报告数量</th>
                             {% if user.is_staff %}
-                                <th> Actions</th>{% endif %}
+                                <th> 操作</th>{% endif %}
                         </tr>
                         </thead>
                         <tbody>
@@ -65,15 +65,15 @@
                                             <div class="btn-group" role="group">
                                                 <a class="btn btn-sm btn-success"
                                                    href="{% url 'add_product_to_product_type' pt.id %}">
-                                                    <i class="fa fa-plus"></i> Add Product
+                                                    <i class="fa fa-plus"></i> 添加产品
                                                 </a>
                                                 <a class="btn btn-sm btn-warning"
                                                    href="{% url 'edit_product_type' pt.id %}">
-                                                    <i class="fa fa-pencil"></i> Edit Product Type
+                                                    <i class="fa fa-pencil"></i> 修改产品类型
                                                 </a>
                                                 <a class="btn btn-sm btn-primary"
                                                    href="{% url 'product_type_report' pt.id %}">
-                                                    <i class="fa fa-file-text-o"></i> Report
+                                                    <i class="fa fa-file-text-o"></i> 报告
                                                 </a>
                                             </div>
                                         </div>
@@ -89,7 +89,7 @@
                     {% include "dojo/paging_snippet.html" with page=pts page_size=True %}
                 </div>
             {% else %}
-                <p class="text-center">No product types found.</p>
+                <p class="text-center">没有找到产品类型.</p>
             {% endif %}
         </div>
     </div>
