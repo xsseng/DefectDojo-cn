@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading tight">
                     <h3 class="has-filters">
-                        Test Type List
+                        测试类型列表
                         <div class="dropdown pull-right">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
                                     data-toggle="dropdown" aria-expanded="true">
@@ -18,7 +18,7 @@
                                 {% if request.user.is_staff %}
                                     <li role="presentation">
                                         <a href="{%  url 'add_test_type' %}">
-                                            <i class="fa fa-plus"></i> New Test Type </a>
+                                            <i class="fa fa-plus"></i> 新建测试类型 </a>
                                     </li>
                                 {% endif %}
                             </ul>
@@ -58,7 +58,7 @@
                     {% include "dojo/paging_snippet.html" with page=tts page_size=True %}
                 </div>
             {% else %}
-                <p class="text-center">No test types found.</p>
+                <p class="text-center">找不到测试类型.</p>
             {% endif %}
         </div>
     </div>
