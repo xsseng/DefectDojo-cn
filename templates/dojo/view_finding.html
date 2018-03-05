@@ -32,61 +32,61 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
                             <li role="presentation">
                                 <a href="{% url 'edit_finding' finding.id %}">
-                                    <i class="fa fa-pencil-square-o"></i> Edit Finding
+                                    <i class="fa fa-pencil-square-o"></i> 修改报告
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="{% url 'manage_images' finding.id %}">
-                                    <i class="fa fa-file-image-o"></i> Manage Images
+                                    <i class="fa fa-file-image-o"></i> 添加图片
                                 </a>
                             </li>
                             {% if finding.under_review and dojo_user in finding.reviewers.all or dojo_user == finding.review_requested_by %}
                                 <li role="presentation">
                                     <a href="{% url 'clear_finding_review' finding.id %}">
-                                        <i class="icon-user-check"></i> Clear Review
+                                        <i class="icon-user-check"></i> 明确审查
                                     </a>
                                 </li>
                             {% elif not finding.under_review %}
                                 <li role="presentation">
                                     <a href="{% url 'request_finding_review' finding.id %}">
-                                        <i class="icon-user-check"></i> Request Peer Review
+                                        <i class="icon-user-check"></i> 请求审查
                                     </a>
                                 </li>
                             {% endif %}
 
                             <li role="presentation">
                                 <a href="{% url 'touch_finding' finding.id %}">
-                                    <i class="fa fa-clock-o"></i> Touch Finding
+                                    <i class="fa fa-clock-o"></i> 创建问题
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="{% url 'mktemplate' finding.id %}">
-                                    <i class="fa fa-copy"></i> Make Finding a Template
+                                    <i class="fa fa-copy"></i> 添加到模板
                                 </a>
                             </li>
                             {% if finding.active %}
                                 <li role="presentation">
                                     <a href="{% url 'close_finding' finding.id %}">
-                                        <i class="fa fa-fire-extinguisher"></i> Close Finding
+                                        <i class="fa fa-fire-extinguisher"></i> 关闭问题
                                     </a>
                                 </li>
                             {% else %}
                                 <li role="presentation">
                                     <a href="{% url 'reopen_finding' finding.id %}">
-                                        <i class="fa fa-bug"></i> Open Finding
+                                        <i class="fa fa-bug"></i> 开启问题
                                     </a>
                                 </li>
                             {% endif %}
                             <li role="presentation">
                                 <a href="{% url 'action_history' finding|content_type finding.id %}">
-                                    <i class="fa fa-history"></i> View History
+                                    <i class="fa fa-history"></i> 查看历史
                                 </a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li role="presentation">
                                 <a class="text-danger" href="{% url 'delete_finding' finding.id %}"
                                    onclick="return confirm('Are you sure you want to delete this finding?')">
-                                    <i class="fa fa-trash"></i> Delete Finding
+                                    <i class="fa fa-trash"></i> 删除问题
                                 </a>
                             </li>
                             </li>
@@ -102,11 +102,11 @@
                         <th class="bg-warning" colspan="7">
                             <span class="text-danger">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                                Alert: This Finding is under review and may not be 100% accurate.
+                                提示: 这一报告正在审核，可能并不是100%的准确.
                             </span>
                             {% if dojo_user in finding.reviewers.all or dojo_user == finding.review_requested_by %}
                                 [<a title="Clear Review" class="text-primary" style="display: inline !important;"
-                                    href="{% url 'clear_finding_review' finding.id %}">Clear Review</a>]
+                                    href="{% url 'clear_finding_review' finding.id %}">明确审查</a>]
                             {% endif %}
                         </th>
                     </tr>
@@ -116,7 +116,7 @@
                         <th class="bg-warning" colspan="7">
                             <span class="text-danger">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                                Alert: Please review this finding to verify if the defect is remediated.
+                                提示: 请重审这一报告，以防修复不完整.
                             </span>
                                 [<a title="Review Finding for Closure" class="text-primary" style="display: inline !important;"
                                     href="{% url 'defect_finding_review' finding.id %}">Review Finding for Closure</a>]
@@ -124,16 +124,16 @@
                     </tr>
                 {% endif %}
                 <tr>
-                    <th>Severity</th>
-                    <th>Status</th>
+                    <th>严重程度</th>
+                    <th>状态</th>
                     {% if finding.risk_acceptance_set.all %}
                         <th>Acceptance</th>
                     {% endif %}
-                    <th>Type</th>
+                    <th>类型</th>
                     <!--<th>Build ID</th>-->
-                    <th>Date discovered</th>
-                    <th>Age</th>
-                    <th>Reporter</th>
+                    <th>发现日期</th>
+                    <th>年龄</th>
+                    <th>报告者</th>
                     {% if finding.mitigated %}
                         <th>Date Mitigated</th>
                         <th>Mitigated By</th>
@@ -252,7 +252,7 @@
         <div class="col-md-12">
             <div class="panel panel-default endpoints table-responsive">
                 <div class="panel-heading">
-                    <h4>Affected Endpoints / Systems
+                    <h4>影响终端/系统
                         <span class="pull-right"><a data-toggle="collapse" href="#vuln_endpoints"><i
                                 class="glyphicon glyphicon-chevron-up"></i></a></span>
                     </h4>
@@ -294,7 +294,7 @@
     <div class="view-finding to_highlight">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Description <span class="pull-right"><a data-toggle="collapse" href="#vuln_desc"><i
+                <h4>描述 <span class="pull-right"><a data-toggle="collapse" href="#vuln_desc"><i
                         class="glyphicon glyphicon-chevron-up"></i></a></span></h4>
             </div>
             <div id="vuln_desc" class="panel-body finding-description collapse in">
@@ -306,7 +306,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4>
-                        Images
+                        图片
                         <div class="pull-right btn-group" role="group">
                             <a title="Edit Images" class="btn btn-sm btn-primary"
                                href="{% url 'manage_images' finding.id %}">
@@ -363,7 +363,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Mitigation <span class="pull-right"><a data-toggle="collapse" href="#vuln_mitigation"><i
+                <h4>修复方案 <span class="pull-right"><a data-toggle="collapse" href="#vuln_mitigation"><i
                         class="glyphicon glyphicon-chevron-up"></i></a></span></h4>
             </div>
             <div id="vuln_mitigation" class="panel-body collapse in">
@@ -405,7 +405,7 @@
         {% endif %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Impact <span class="pull-right"><a data-toggle="collapse" href="#vuln_impact"><i
+                <h4>影响 <span class="pull-right"><a data-toggle="collapse" href="#vuln_impact"><i
                         class="glyphicon glyphicon-chevron-up"></i></a></span></h4>
             </div>
             <div id="vuln_impact" class="panel-body collapse in">
@@ -418,7 +418,7 @@
         <div class="col-md-12" id="cred">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Credential
+                    <h4>凭据
                       {% if not cred_finding %}
                            {% if cred_engagement or creds %}
                         <a title="Add New Credential" class="pull-right btn btn-primary btn-sm"
@@ -517,7 +517,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>References <span class="pull-right"><a data-toggle="collapse" href="#vuln_refs"><i
+                <h4>参考内容 <span class="pull-right"><a data-toggle="collapse" href="#vuln_refs"><i
                         class="glyphicon glyphicon-chevron-up"></i></a></span></h4>
             </div>
             <div id="vuln_refs" class="panel-body collapse in">
@@ -530,7 +530,7 @@
 
     <div class="panel panel-default to_highlight table-responsive">
         <div class="panel-heading">
-            <h4>Notes <span class="pull-right"><a data-toggle="collapse" href="#vuln_notes"><i
+            <h4>备注 <span class="pull-right"><a data-toggle="collapse" href="#vuln_notes"><i
                     class="glyphicon glyphicon-chevron-up"></i></a></span></h4>
         </div>
         <div id="vuln_notes" class="panel-body collapse in">
